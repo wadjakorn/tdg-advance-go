@@ -2,28 +2,34 @@
 
 > online class @TDG with Somkiat Puisungnoen
 
-## run /app
+## Day1
+
+### run /app
 
 ```bash
-PORT=8080 go run app/main.go
+PORT=8080 go run day1/app/main.go
 ```
 
 or if use flag
 
 ```bash
-go run app/main.go -port=8080
+go run day1/app/main.go -port=8080
 ```
 
-## run /another-app
+### run /another-app
 
 ```bash
-go run another-app/main.go
+go run day1/another-app/main.go
 ```
 
-## run e2e test for /app
+### run e2e test for /app
 
 ```bash
-go test --tags=e2e ./app/... -v
+go test --tags=e2e .day1//app/... -v
 ```
 
 > use rest client for rest-client-test dir (VSCode extension)
+
+## Day2
+
+> ...
