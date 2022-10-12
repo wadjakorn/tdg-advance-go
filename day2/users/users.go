@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type UserResponse struct {
@@ -18,22 +19,27 @@ func GetUserHandler(service *UserService) echo.HandlerFunc {
 	}
 }
 
-type UserRepository struct {
+type IRepository interface {
+	GetSth() (string, error)
 }
 
-func NewUserRepository() *UserRepository {
-	return &UserRepository{}
+type UserRepository struct {
+	*mongo.Client
+}
+
+func NewUserRepository(client *mongo.Client) UserRepository {
+	return UserRepository{Client: client}
 }
 
 func (r *UserRepository) GetSth() (string, error) {
-	return "Call get user", fmt.Errorf("TODO next")
+	return "TODO next", fmt.Errorf("TODO next")
 }
 
 type UserService struct {
-	repo UserRepository
+	repo IRepository
 }
 
-func NewUserService(repo UserRepository) *UserService {
+func NewUserService(repo IRepository) *UserService {
 	return &UserService{repo: repo}
 }
 
