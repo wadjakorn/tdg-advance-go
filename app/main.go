@@ -22,7 +22,7 @@ func main() {
 	})
 
 	pService := products.NewProductService()
-	e.GET("/products", pService.GetAll())
+	e.GET("/products", products.GetAll(pService))
 
 	e.Logger.Fatal(e.Start("127.0.0.1:" + port))
 

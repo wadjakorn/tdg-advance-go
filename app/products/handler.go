@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (service *ProductService) GetAll() echo.HandlerFunc {
+func GetAll(service *ProductService) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		return c.JSON(http.StatusOK, service.products())
 	}

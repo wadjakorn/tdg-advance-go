@@ -15,7 +15,7 @@ import (
 func TestGetAllSuccess(t *testing.T) {
 	e := echo.New()
 	service := products.NewProductService()
-	e.GET("/products", service.GetAll())
+	e.GET("/products", products.GetAll(service))
 	httptest.NewRequest(http.MethodGet, "/products", nil)
 	rec := httptest.NewRecorder()
 	assert.Equal(t, http.StatusOK, rec.Code)
